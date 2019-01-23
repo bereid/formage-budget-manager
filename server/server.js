@@ -4,7 +4,7 @@ const PORT = 4444;
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 const cors = require('cors');
-const mockdb = require('../mockdb');
+const mockdb = require('../src/mockdb');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
