@@ -1,4 +1,4 @@
-const mockdb = {
+module.exports = {
   user: {
     username: 'user.name',
     avatar: 'User Name',
@@ -194,6 +194,3 @@ const mockdb = {
     }
   },
 }
-
-
-console.log(mockdb.user.transctions.year2019.march);
