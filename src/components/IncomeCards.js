@@ -13,7 +13,7 @@ export class IncomeCards extends Component {
         <Progress />
       )
     } else {
-
+      console.log(this.props.budgetToRender);
       const { user } = this.props.budgetToRender;
 
       return (

@@ -1,9 +1,8 @@
 import { fetchAllData } from '../actions/fetchAllData';
-
 const PORT = 4444;
 
 const getAllData = dispatch  => {
-  fetch(`http://localhost:${PORT}/api/budget`,
+  fetch(`http://localhost:${PORT}/test`,
     {
       method: 'GET',
       headers: {

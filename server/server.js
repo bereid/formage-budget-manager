@@ -5,7 +5,6 @@ const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
 const cors = require("cors");
 const password = require("./password");
-const mockdb = require("../src/mockdb");
 const mongoose = require("mongoose");
 const mongodb = require("mongodb");
 const MongoClient = mongodb.MongoClient;
@@ -21,10 +20,6 @@ const db = mongoose.createConnection(
   { useNewUrlParser: true }
 );
 const dbRoute = `mongodb://fromageBoyz:${password}@ds111455.mlab.com:11455/budget-db`;
-
-app.get("/api/budget", (req, res) => {
-  res.send(mockdb);
-});
 
 app.get("/test", (req, res) => {
   MongoClient.connect(
