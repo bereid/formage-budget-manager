@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { InputText } from "primereact/inputtext";
 import { Calendar } from "primereact/calendar";
 import { RadioButton } from "primereact/radiobutton";
+import { Dropdown } from "primereact/dropdown";
 
 export class NewTransForm extends Component {
   constructor() {
@@ -18,6 +19,7 @@ export class NewTransForm extends Component {
     this.state = {
       type: null,
       value: null,
+      category: null,
       date1: null,
       date2: null,
       date3: null,
@@ -37,10 +39,15 @@ export class NewTransForm extends Component {
     };
 
     this.dateTemplate = this.dateTemplate.bind(this);
+    this.onCategoryChange = this.onCategoryChange.bind(this);
   }
 
   toggle() {
     this.setState({ disabled: !this.state.disabled });
+  }
+
+  onCategoryChange(e) {
+    this.setState({ category: e.value });
   }
 
   dateTemplate(date) {
@@ -67,9 +74,29 @@ export class NewTransForm extends Component {
   }
 
   render() {
+    const categories = [
+      { name: "Utilities" },
+      { name: "Rent" },
+      { name: "Car" },
+      { name: "Food" },
+      { name: "Personal" },
+      { name: "Medical" },
+      { name: "Entertainment" },
+      { name: "One-time" }
+    ];
+
     return (
       <div>
         <div className="content-section implementation">
+          <div className="p-grid p-fluid">
+            <div className="p-col-12 p-md-4">
+              <Calendar
+                value={this.state.date3}
+                onChange={e => this.setState({ date3: e.value })}
+                showIcon={true}
+              />
+            </div>
+          </div>
           <div
             className="p-grid"
             style={{ width: "250px", marginBottom: "10px" }}
@@ -99,17 +126,7 @@ export class NewTransForm extends Component {
               </label>
             </div>
           </div>
-          <div className="p-grid p-fluid">
-            <div className="p-col-12 p-md-4">
-              <Calendar
-                value={this.state.date3}
-                onChange={e => this.setState({ date3: e.value })}
-                showIcon={true}
-              />
-            </div>
-          </div>
           <span className="p-float-label">
-            <h4>What did you buy again?</h4>
             <InputText
               id="float-input"
               type="text"
@@ -119,13 +136,34 @@ export class NewTransForm extends Component {
             />
             <label htmlFor="float-input">Expense Name</label>
           </span>
-
-          <InputText
-            type="text"
-            keyfilter="pint"
-            value={this.state.value3}
-            onChange={e => this.setState({ value3: e.target.value })}
-          />
+          <span className="p-float-label">
+            <InputText
+              id="float-input"
+              type="text"
+              size="30"
+              value={this.state.value2}
+              onChange={e => this.setState({ value2: e.target.value })}
+            />
+            <label htmlFor="float-input">Short description</label>
+          </span>
+          <div>
+            <Dropdown
+              value={this.state.category}
+              options={categories}
+              onChange={this.onCategoryChange}
+              style={{ width: "150px" }}
+              placeholder="Select a Category"
+              optionLabel="name"
+            />
+          </div>
+          <div>
+            <InputText
+              type="text"
+              keyfilter="pint"
+              value={this.state.value3}
+              onChange={e => this.setState({ value3: e.target.value })}
+            />
+          </div>
         </div>
       </div>
     );
