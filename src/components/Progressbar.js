@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { ProgressBar } from 'primereact/progressbar';
-import { Growl } from 'primereact/growl';
 
 class Progress extends Component {
 
@@ -16,12 +15,6 @@ class Progress extends Component {
     this.interval = setInterval(() => {
       let val = this.state.value1;
       val += Math.floor(Math.random() * 10) + 1;
-
-      if (val >= 100) {
-        val = 100;
-        this.growl.show({ severity: 'info', summary: 'Success', detail: 'Process Completed' });
-        clearInterval(this.interval);
-      }
 
       this.setState({
         value1: val
@@ -39,7 +32,6 @@ class Progress extends Component {
   render() {
     return (
       <div className="content-section implementation">
-        <Growl ref={(el) => this.growl = el}></Growl>
         <ProgressBar mode="indeterminate" style={{ height: '6px' }}></ProgressBar>
       </div>
     );

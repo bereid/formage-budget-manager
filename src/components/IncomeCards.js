@@ -3,7 +3,7 @@ import { Panel } from 'primereact/panel';
 import 'primereact/resources/primereact.min.css';
 import Progress from './Progressbar';
 
-export class Card extends Component {
+export class IncomeCards extends Component {
 
   render() {
 
@@ -24,11 +24,10 @@ export class Card extends Component {
             </Panel>
           ))}
         </div>
-
       )
     }
   }
 }
 
 
-export default Card;
+export default IncomeCards;
