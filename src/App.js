@@ -1,9 +1,14 @@
 import React from 'react';
-import './App.css';
 import DoughnutChartDemo from './components/Donut';
+import ScrollWidget from './components/ScrollWidget';
+import { Row, Col } from 'reactstrap';
 
 const App = ({ props }) => (
-  <DoughnutChartDemo budget={props}></DoughnutChartDemo>
+  <Row>
+    <Col sm="2"><ScrollWidget/></Col>
+    <Col sm="7"><DoughnutChartDemo budget={props} /></Col>
+    <Col sm="3"><ScrollWidget budget={props}/></Col>
+  </Row>
 )
 
 export default App;

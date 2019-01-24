@@ -16,8 +16,10 @@ class DoughnutChartDemo extends Component {
       entertainment: 0,
       misc: 0,
     }
-
-
+    
+    let dataToLabels = Object.keys(user.transactions.january2019);
+    dataToLabels.splice(0, 1);
+    
     Object.values(user.transactions.january2019).forEach(value => {
       value.forEach(element => {
         if (element.category === 'Utilities') {
@@ -38,8 +40,9 @@ class DoughnutChartDemo extends Component {
       });
     });
 
+
     const data = {
-      labels: Object.keys(user.transactions.january2019),
+      labels: dataToLabels,
       datasets: [
         {
           data: Object.values(expenses),
