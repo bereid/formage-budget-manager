@@ -98,84 +98,110 @@ export class NewTransForm extends Component {
       { name: "One-time" }
     ];
 
+    const footer = (
+      <div>
+        <Button label="Yes" icon="pi pi-check" onClick={this.onHide} />
+        <Button
+          label="No"
+          icon="pi pi-times"
+          onClick={this.onHide}
+          className="p-button-secondary"
+        />
+      </div>
+    );
+
     return (
       <div>
-        <div className="p-grid p-fluid">
-          <div className="p-col-12 p-md-4">
-            <Calendar
-              value={this.state.date3}
-              onChange={e => this.setState({ date3: e.value })}
-              showIcon={true}
-            />
-          </div>
-        </div>
-        <div
-          className="p-grid"
-          style={{ width: "250px", marginBottom: "10px" }}
+        <Dialog
+          header="Godfather I"
+          visible={this.state.visible}
+          style={{ width: "50vw" }}
+          footer={footer}
+          onHide={this.onHide}
+          maximizable
         >
-          <div className="p-col-12">
-            <RadioButton
-              inputId="rb1"
-              name="type"
-              value="Income"
-              onChange={e => this.setState({ city: e.value })}
-              checked={this.state.city === "Income"}
-            />
-            <label htmlFor="rb1" className="p-radiobutton-label">
-              Income
-            </label>
+          <div className="p-grid p-fluid">
+            <div className="p-col-12 p-md-4">
+              <Calendar
+                value={this.state.date3}
+                onChange={e => this.setState({ date3: e.value })}
+                showIcon={true}
+              />
+            </div>
           </div>
-          <div className="p-col-12">
-            <RadioButton
-              inputId="rb2"
-              name="type"
-              value="Expense"
-              onChange={e => this.setState({ city: e.value })}
-              checked={this.state.city === "Expense"}
-            />
-            <label htmlFor="rb2" className="p-radiobutton-label">
-              Expense
-            </label>
+          <div
+            className="p-grid"
+            style={{ width: "250px", marginBottom: "10px" }}
+          >
+            <div className="p-col-12">
+              <RadioButton
+                inputId="rb1"
+                name="type"
+                value="Income"
+                onChange={e => this.setState({ city: e.value })}
+                checked={this.state.city === "Income"}
+              />
+              <label htmlFor="rb1" className="p-radiobutton-label">
+                Income
+              </label>
+            </div>
+            <div className="p-col-12">
+              <RadioButton
+                inputId="rb2"
+                name="type"
+                value="Expense"
+                onChange={e => this.setState({ city: e.value })}
+                checked={this.state.city === "Expense"}
+              />
+              <label htmlFor="rb2" className="p-radiobutton-label">
+                Expense
+              </label>
+            </div>
           </div>
-        </div>
-        <span className="p-float-label">
-          <InputText
-            id="float-input"
-            type="text"
-            size="30"
-            value={this.state.value2}
-            onChange={e => this.setState({ value2: e.target.value })}
-          />
-          <label htmlFor="float-input">Expense Name</label>
-        </span>
-        <span className="p-float-label">
-          <InputText
-            id="float-input"
-            type="text"
-            size="30"
-            value={this.state.value3}
-            onChange={e => this.setState({ value3: e.target.value })}
-          />
-          <label htmlFor="float-input">Short description</label>
-        </span>
-        <div>
-          <Dropdown
-            value={this.state.category}
-            options={categories}
-            onChange={this.onCategoryChange}
-            style={{ width: "150px" }}
-            placeholder="Select a Category"
-            optionLabel="name"
-          />
-        </div>
-        <div>
-          <InputText
-            type="text"
-            keyfilter="pint"
-            value={this.state.value4}
-            onChange={e => this.setState({ value4: e.target.value })}
-          />
-        </div>
+          <span className="p-float-label">
+            <InputText
+              id="float-input"
+              type="text"
+              size="30"
+              value={this.state.value2}
+              onChange={e => this.setState({ value2: e.target.value })}
+            />
+            <label htmlFor="float-input">Expense Name</label>
+          </span>
+          <span className="p-float-label">
+            <InputText
+              id="float-input"
+              type="text"
+              size="30"
+              value={this.state.value3}
+              onChange={e => this.setState({ value3: e.target.value })}
+            />
+            <label htmlFor="float-input">Short description</label>
+          </span>
+          <div>
+            <Dropdown
+              value={this.state.category}
+              options={categories}
+              onChange={this.onCategoryChange}
+              style={{ width: "150px" }}
+              placeholder="Select a Category"
+              optionLabel="name"
+            />
+          </div>
+          <div>
+            <InputText
+              type="text"
+              keyfilter="pint"
+              value={this.state.value4}
+              onChange={e => this.setState({ value4: e.target.value })}
+            />
+          </div>
+        </Dialog>
+        <Button
+          label="Add new item"
+          icon="pi pi-external-link"
+          onClick={this.onClick}
+        />
       </div>
     );
   }
