@@ -3,6 +3,8 @@ import { InputText } from "primereact/inputtext";
 import { Calendar } from "primereact/calendar";
 import { RadioButton } from "primereact/radiobutton";
 import { Dropdown } from "primereact/dropdown";
+import { Dialog } from "primereact/dialog";
+import { Button } from "primereact/button";
 
 export class NewTransForm extends Component {
   constructor() {
@@ -20,6 +22,7 @@ export class NewTransForm extends Component {
       type: null,
       value: null,
       category: null,
+      visible: false,
       date1: null,
       date2: null,
       date3: null,
@@ -40,6 +43,16 @@ export class NewTransForm extends Component {
 
     this.dateTemplate = this.dateTemplate.bind(this);
     this.onCategoryChange = this.onCategoryChange.bind(this);
+    this.onClick = this.onClick.bind(this);
+    this.onHide = this.onHide.bind(this);
+  }
+
+  onClick(event) {
+    this.setState({ visible: true });
+  }
+
+  onHide(event) {
+    this.setState({ visible: false });
   }
 
   toggle() {
