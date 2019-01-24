@@ -1,11 +1,12 @@
 import React from 'react';
+import List from './components/List';
+import Form from './components/Form';
+import Avatar from 'react-avatar';
 import DoughnutChartDemo from './components/Donut';
 import ScrollWidget from './components/ScrollWidget';
 import { Row, Col } from 'reactstrap';
-import List from './components/List';
 import Progress from './components/Progressbar';
-import Avatar from 'react-avatar';
-import Form from './components/Form';
+import LeftBar from './components/LeftBar';
 
 const styles = {
   leftBar: {
@@ -26,13 +27,13 @@ const styles = {
   },
   name: {
     color: 'white',
-    display: 'inline',
+    display: 'block',
     padding: '1em',
   },
   addnew: {
     margin: 'auto 0',
     marginBottom: '1em',
-  }
+  },
 }
 
 const App = ({ data, getData }) => {
@@ -44,20 +45,7 @@ const App = ({ data, getData }) => {
   } else {
     return (
       <Row>
-        <Col sm="2">
-          <div style={styles.leftBar}>
-            <div style={styles.list}>
-              <List props={data[0]} />
-            </div>
-            <div style={styles.logobar}>
-              <div style={styles.addnew}>
-                <Form style={styles.addnew}/>
-              </div>
-              <Avatar color={'#08c5d1'} round={true} size={50} name={data[0].user.username} />
-              <p style={styles.name}>{data[0].user.username}</p>
-            </div>
-          </div>
-        </Col>
+        <Col sm="2"><LeftBar props={data[0]}/></Col>
         <Col sm="7"><DoughnutChartDemo budget={data[0]} /></Col>
         <Col sm="3"><ScrollWidget budget={data[0]} /></Col>
       </Row>
