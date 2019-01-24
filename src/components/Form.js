@@ -36,7 +36,7 @@ const styles = {
     width: "150px"
   },
   button: {
-    width: '80%',
+    width: '100%',
     backgroundColor: '#d46f4d',
     border: '#d46f4d'
   }
