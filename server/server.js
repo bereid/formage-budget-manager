@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const db = mongoose.connection;
-const dbRoute = `mongodb://fromageBoyz:${password}@ds131721.mlab.com:31721/fromage-db`;
+const dbRoute = `mongodb://fromageBoyz:${password}@ds111425.mlab.com:11425/fromage-budget-db`;
 
 app.get("/api/budget", (req, res) => {
   res.send(mockdb);
