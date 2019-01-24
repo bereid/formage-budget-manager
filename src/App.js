@@ -13,9 +13,6 @@ const App = ({ props }) => (
       <DoughnutChartDemo budget={props} />
     </Col>
     <Col sm="3">
-      <NewTransForm />
-    </Col>
-    <Col sm="3">
       <ScrollWidget budget={props} />
     </Col>
   </Row>
