@@ -6,6 +6,36 @@ import { Dropdown } from "primereact/dropdown";
 import { Dialog } from "primereact/dialog";
 import { Button } from "primereact/button";
 
+const styles = {
+  form: {
+    textAlign: "center"
+  },
+
+  calendar: {
+    width: "40%",
+    margin: "15px auto"
+  },
+
+  radio: {
+    display: "inline-block"
+  },
+
+  name: {
+    width: "80%",
+    margin: "15px auto"
+  },
+
+  description: {
+    width: "80%",
+    margin: "15px auto"
+  },
+
+  category: {
+    margin: "15px auto",
+    width: "150px"
+  }
+};
+
 export class NewTransForm extends Component {
   constructor() {
     super();
@@ -113,14 +143,14 @@ export class NewTransForm extends Component {
     return (
       <div>
         <Dialog
-          header="Godfather I"
+          header="Add New Item"
           visible={this.state.visible}
           style={{ width: "50vw" }}
           footer={footer}
           onHide={this.onHide}
           maximizable
         >
-          <div className="p-grid p-fluid">
+          <div style={styles.calendar} className="p-grid p-fluid">
             <div className="p-col-12 p-md-4">
               <Calendar
                 value={this.state.date3}
@@ -131,7 +161,10 @@ export class NewTransForm extends Component {
           </div>
           <div
             className="p-grid"
-            style={{ width: "250px", marginBottom: "10px" }}
+            style={{
+              width: "250px",
+              margin: "15px auto"
+            }}
           >
             <div className="p-col-12">
               <RadioButton
@@ -162,6 +195,7 @@ export class NewTransForm extends Component {
             <InputText
               id="float-input"
               type="text"
+              style={styles.name}
               size="30"
               value={this.state.value2}
               onChange={e => this.setState({ value2: e.target.value })}
@@ -172,6 +206,7 @@ export class NewTransForm extends Component {
             <InputText
               id="float-input"
               type="text"
+              style={styles.description}
               size="30"
               value={this.state.value3}
               onChange={e => this.setState({ value3: e.target.value })}
@@ -183,18 +218,20 @@ export class NewTransForm extends Component {
               value={this.state.category}
               options={categories}
               onChange={this.onCategoryChange}
-              style={{ width: "150px" }}
+              style={styles.category}
               placeholder="Select a Category"
               optionLabel="name"
             />
           </div>
-          <div>
+          <div className="p-float-label">
             <InputText
+              id="float-input"
               type="text"
               keyfilter="pint"
               value={this.state.value4}
               onChange={e => this.setState({ value4: e.target.value })}
             />
+            <label htmlFor="float-input">Amount</label>
           </div>
         </Dialog>
         <Button

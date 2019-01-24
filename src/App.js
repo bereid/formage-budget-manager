@@ -12,7 +12,7 @@ const App = ({ props }) => (
     <Col sm="7">
       <DoughnutChartDemo budget={props} />
     </Col>
-    <Col sm="2">
+    <Col sm="3">
       <NewTransForm />
     </Col>
     <Col sm="3">
