@@ -5,8 +5,8 @@ import ExpendCards from './ExpendCards';
 
 const ScrollWidget = ({ budget }) => (
   <ScrollPanel style={{ width: '100%', height: '100vh'}}>
-  <IncomeCards budgetToRender={budget}/>
-  <ExpendCards budgetToRender={budget}/>
+    <IncomeCards budgetToRender={budget}/>
+    <ExpendCards budgetToRender={budget}/>
   </ScrollPanel >
 );
 
