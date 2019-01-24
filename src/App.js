@@ -4,6 +4,7 @@ import ScrollWidget from './components/ScrollWidget';
 import { Row, Col } from 'reactstrap';
 import List from './components/List';
 import Progress from './components/Progressbar';
+import Avatar from 'react-avatar';
 
 const styles = {
   leftBar: {
@@ -11,6 +12,24 @@ const styles = {
     height: '100vh',
     width: '100%',
     boxShadow: '4px 0px 85px 0px rgba(0,0,0,0.75)',
+    display: 'flex',
+    flexDirection: 'column',
+    overflow: 'scroll',
+  },
+  list: {
+    height: '50%',
+  },
+  logobar: {
+    padding: '1em',
+    borderTop: '1px solid white'
+  },
+  name: {
+    color: 'white',
+    display: 'inline',
+    padding: '1em',
+  },
+  addnew: {
+    borderBottom: '1px solid white',
   }
 }
 
@@ -25,7 +44,16 @@ const App = ({ data, getData }) => {
       <Row>
         <Col sm="2">
           <div style={styles.leftBar}>
-            <List props={data} />
+            <div style={styles.list}>
+              <List props={data} />
+            </div>
+            <div style={styles.logobar}>
+              <div style={styles.addnew}>
+                ADD NEW
+              </div>
+              <Avatar color={'#08c5d1'} round={true} size={50} name={data.user.username} />
+              <p style={styles.name}>{data.user.username}</p>
+            </div>
           </div>
         </Col>
         <Col sm="7"><DoughnutChartDemo budget={data} /></Col>
