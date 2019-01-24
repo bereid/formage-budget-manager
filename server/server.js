@@ -1,10 +1,11 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const PORT = 4444;
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
-const cors = require('cors');
-const mockdb = require('../src/mockdb');
+const cors = require("cors");
+const mockdb = require("../src/mockdb");
+const mongoose = require("mongoose");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -14,6 +15,6 @@ app.get("/api/budget", (req, res) => {
   res.send(mockdb);
 });
 
-app.listen(PORT, ()=> {
+app.listen(PORT, () => {
   console.log(`Server is running on the PORT: ${PORT}`);
 });
