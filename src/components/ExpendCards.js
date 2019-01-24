@@ -17,7 +17,6 @@ export class ExpendCards extends Component {
       const { user } = this.props.budgetToRender;
       let expenses = Object.values(user.transactions.january2019);
       expenses.splice(0, 1);
-      console.log(expenses)
       let newExpenses = [];
       for (let i = 0; i < expenses.length; i++) {
         for (let j = 0; j < expenses[i].length; j++) {
