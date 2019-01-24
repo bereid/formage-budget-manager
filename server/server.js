@@ -9,13 +9,18 @@ const mockdb = require("../src/mockdb");
 const mongoose = require("mongoose");
 const mongodb = require("mongodb");
 const MongoClient = mongodb.MongoClient;
+const router = express.Router();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use("/", router);
 app.use(cors());
 
-const db = mongoose.connection;
-const dbRoute = `mongodb://fromageBoyz:${password}@ds111425.mlab.com:11425/fromage-budget-db`;
+const db = mongoose.createConnection(
+  `mongodb://fromageBoyz:${password}@ds111455.mlab.com:11455/budget-db`,
+  { useNewUrlParser: true }
+);
+const dbRoute = `mongodb://fromageBoyz:g6z4TEB33@ds111455.mlab.com:11455/budget-db`;
 
 app.get("/api/budget", (req, res) => {
   res.send(mockdb);
@@ -26,7 +31,7 @@ app.get("/test", (req, res) => {
     dbRoute,
     { useNewUrlParser: true },
     (err, database) => {
-      let collection = db.collection("budget");
+      let collection = db.collection("wallets");
       collection.find({}).toArray((err, data) => {
         return res.json(data);
       });
@@ -35,9 +40,8 @@ app.get("/test", (req, res) => {
 });
 
 db.once("open", () => console.log("Connected to the database"));
-
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 app.listen(PORT, () => {
-  console.log(`Server is running on the PORT: ${PORT}`);
+  console.log(`Server is running on PORT: ${PORT}`);
 });
