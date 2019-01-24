@@ -20,7 +20,7 @@ const db = mongoose.createConnection(
   `mongodb://fromageBoyz:${password}@ds111455.mlab.com:11455/budget-db`,
   { useNewUrlParser: true }
 );
-const dbRoute = `mongodb://fromageBoyz:g6z4TEB33@ds111455.mlab.com:11455/budget-db`;
+const dbRoute = `mongodb://fromageBoyz:${password}@ds111455.mlab.com:11455/budget-db`;
 
 app.get("/api/budget", (req, res) => {
   res.send(mockdb);
