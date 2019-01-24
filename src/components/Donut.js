@@ -40,22 +40,21 @@ class DoughnutChartDemo extends Component {
       });
     });
 
+    const colors = [
+      "#fdcb6e", "#e17055", "#00b894", "#00cec9", "#6c5ce7", "#0984e3", "#2d3436", "#b2bec3"
+    ];
+
+    const hoovers = [
+      "#ffeaa7", "#fab1a0", "#55efc4", "#81ecec", "#a29bfe", "#74b9ff", "#636e72", "#dfe6e9"
+    ]
 
     const data = {
       labels: dataToLabels,
       datasets: [
         {
           data: Object.values(expenses),
-          backgroundColor: [
-            "#FF6384",
-            "#36A2EB",
-            "#FFCE56"
-          ],
-          hoverBackgroundColor: [
-            "#FF6384",
-            "#36A2EB",
-            "#FFCE56"
-          ]
+          backgroundColor: colors,
+          hoverBackgroundColor: hoovers,
         }]
     };
 

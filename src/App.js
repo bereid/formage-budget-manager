@@ -47,19 +47,19 @@ const App = ({ data, getData }) => {
         <Col sm="2">
           <div style={styles.leftBar}>
             <div style={styles.list}>
-              <List props={data} />
+              <List props={data[0]} />
             </div>
             <div style={styles.logobar}>
               <div style={styles.addnew}>
                 <Form style={styles.addnew}/>
               </div>
-              <Avatar color={'#08c5d1'} round={true} size={50} name={data.user.username} />
-              <p style={styles.name}>{data.user.username}</p>
+              <Avatar color={'#08c5d1'} round={true} size={50} name={data[0].user.username} />
+              <p style={styles.name}>{data[0].user.username}</p>
             </div>
           </div>
         </Col>
-        <Col sm="7"><DoughnutChartDemo budget={data} /></Col>
-        <Col sm="3"><ScrollWidget budget={data} /></Col>
+        <Col sm="7"><DoughnutChartDemo budget={data[0]} /></Col>
+        <Col sm="3"><ScrollWidget budget={data[0]} /></Col>
       </Row>
     )
   }
