@@ -16,21 +16,22 @@ const styles = {
     margin: "15px auto"
   },
 
-  radio: {
-    display: "inline-block"
-  },
-
   name: {
-    width: "80%",
+    width: "100%",
     margin: "15px auto"
   },
 
   description: {
-    width: "80%",
+    width: "100%",
     margin: "15px auto"
   },
 
   category: {
+    margin: "15px auto",
+    width: "150px"
+  },
+
+  amount: {
     margin: "15px auto",
     width: "150px"
   }
@@ -162,8 +163,8 @@ export class NewTransForm extends Component {
           <div
             className="p-grid"
             style={{
-              width: "250px",
-              margin: "15px auto"
+              width: "200px",
+              marginBottom: "25px"
             }}
           >
             <div className="p-col-12">
@@ -200,7 +201,7 @@ export class NewTransForm extends Component {
               value={this.state.value2}
               onChange={e => this.setState({ value2: e.target.value })}
             />
-            <label htmlFor="float-input">Expense Name</label>
+            <label htmlFor="float-input">Income/Expense Name</label>
           </span>
           <span className="p-float-label">
             <InputText
@@ -227,6 +228,7 @@ export class NewTransForm extends Component {
             <InputText
               id="float-input"
               type="text"
+              style={styles.amount}
               keyfilter="pint"
               value={this.state.value4}
               onChange={e => this.setState({ value4: e.target.value })}
