@@ -14,7 +14,9 @@ const styles = {
 
 const App = ({ props }) => (
   <Row>
-    <Col sm="2"><div style={styles.leftBar}></div></Col>
+    <Col sm="2">
+      <div style={styles.leftBar}>
+      </div></Col>
     <Col sm="7"><DoughnutChartDemo budget={props} /></Col>
     <Col sm="3"><ScrollWidget budget={props} /></Col>
   </Row>
