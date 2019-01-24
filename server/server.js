@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
 const cors = require("cors");
 const password = require("./password");
+const mockdb = require("../src/mockdb");
 const mongoose = require("mongoose");
 const mongodb = require("mongodb");
 const MongoClient = mongodb.MongoClient;
@@ -29,6 +30,24 @@ app.get("/test", (req, res) => {
       let collection = db.collection("wallets");
       collection.find({}).toArray((err, data) => {
         return res.json(data);
+      });
+    }
+  );
+});
+
+app.post("/new", (req, res) => {
+  MongoClient.connect(
+    dbRoute,
+    { useNewUrlParser: true },
+    (err, database) => {
+      let collection = db.collection("wallets");
+      collection.insertOne({
+        date: req.body.date,
+        type: req.body.type,
+        name: req.body.name,
+        description: req.body.description,
+        category: req.body.category,
+        amount: req.body.amount
       });
     }
   );
