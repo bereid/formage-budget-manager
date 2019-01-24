@@ -5,6 +5,7 @@ import { Row, Col } from 'reactstrap';
 import List from './components/List';
 import Progress from './components/Progressbar';
 import Avatar from 'react-avatar';
+import Form from './components/Form';
 
 const styles = {
   leftBar: {
@@ -29,7 +30,8 @@ const styles = {
     padding: '1em',
   },
   addnew: {
-    borderBottom: '1px solid white',
+    margin: 'auto 0',
+    marginBottom: '1em',
   }
 }
 
@@ -49,7 +51,7 @@ const App = ({ data, getData }) => {
             </div>
             <div style={styles.logobar}>
               <div style={styles.addnew}>
-                ADD NEW
+                <Form style={styles.addnew}/>
               </div>
               <Avatar color={'#08c5d1'} round={true} size={50} name={data.user.username} />
               <p style={styles.name}>{data.user.username}</p>

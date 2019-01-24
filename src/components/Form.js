@@ -34,10 +34,13 @@ const styles = {
   amount: {
     margin: "15px auto",
     width: "150px"
+  },
+  button: {
+    width: '80%',
   }
 };
 
-export class NewTransForm extends Component {
+export class Form extends Component {
   constructor() {
     super();
 
@@ -238,12 +241,13 @@ export class NewTransForm extends Component {
         </Dialog>
         <Button
           label="Add new item"
-          icon="pi pi-external-link"
+          icon="pi pi-plus"
           onClick={this.onClick}
+          style={styles.button}
         />
       </div>
     );
   }
 }
 
-export default NewTransForm;
+export default Form;
