@@ -3,7 +3,7 @@ import { ScrollPanel } from 'primereact/scrollpanel';
 import Switcher from './Switcher';
 
 const ScrollWidget = ({ budget }) => (
-  <ScrollPanel style={{ width: '100%', height: '100vh' }}>
+  <ScrollPanel style={{ width: '100%', height: '100vh', padding: '1em' }}>
     <Switcher props={budget} />
   </ScrollPanel >
 );
