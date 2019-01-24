@@ -22,11 +22,10 @@
     "superagent": "^4.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"react-scripts start\" \"node ./server/server.js\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "prod": "npm run build && serve build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
