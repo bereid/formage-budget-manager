@@ -4,11 +4,45 @@ import { Chart } from 'primereact/chart';
 class DoughnutChartDemo extends Component {
 
   render() {
+    const { user } = this.props.budget;
+
+    let expenses = {
+      utility: 0,
+      rent: 0,
+      car: 0,
+      food: 0,
+      personal: 0,
+      medical: 0,
+      entertainment: 0,
+      misc: 0,
+    }
+
+
+    Object.values(user.transactions.january2019).forEach(value => {
+      value.forEach(element => {
+        if (element.category === 'Utilities') {
+          expenses.utility += element.amount;
+        } else if (element.category === 'Car') {
+           expenses.car += element.amount;
+        } else if (element.category === 'Home/Rent') {
+          expenses.rent += element.amount;
+        } else if (element.category === 'Insurance/Medical') {
+          expenses.medical += element.amount;
+        } else if (element.category === 'Personal') {
+          expenses.personal += element.amount;
+        } else if (element.category === 'Misc/One-time') {
+          expenses.misc += element.amount;
+        } else if (element.category === 'Food/Groceries') {
+          expenses.food += element.amount;
+        }
+      });
+    });
+
     const data = {
-      labels: ['A', 'B', 'C'],
+      labels: Object.keys(user.transactions.january2019),
       datasets: [
         {
-          data: [300, 50, 100],
+          data: Object.values(expenses),
           backgroundColor: [
             "#FF6384",
             "#36A2EB",
@@ -25,7 +59,6 @@ class DoughnutChartDemo extends Component {
     return (
       <div className="content-section implementation">
         <Chart type="doughnut" data={data} />
-        {console.log(this.props.props)}
       </div>
     )
   }

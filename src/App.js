@@ -3,7 +3,7 @@ import './App.css';
 import DoughnutChartDemo from './components/Donut';
 
 const App = ({ props }) => (
-  <DoughnutChartDemo props={props}></DoughnutChartDemo>
+  <DoughnutChartDemo budget={props}></DoughnutChartDemo>
 )
 
 export default App;
