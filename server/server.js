@@ -5,11 +5,11 @@ const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
 const cors = require("cors");
 const password = require("./password");
-const mockdb = require("../src/mockdb");
 const mongoose = require("mongoose");
 const mongodb = require("mongodb");
 const MongoClient = mongodb.MongoClient;
 const router = express.Router();
+const id = { $oid: "5c4a29c4fb6fc02d2ef30ff4" };
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -36,19 +36,27 @@ app.get("/test", (req, res) => {
 });
 
 app.post("/new", (req, res) => {
+  let date = req.body.date;
   MongoClient.connect(
     dbRoute,
     { useNewUrlParser: true },
     (err, database) => {
       let collection = db.collection("wallets");
-      collection.insertOne({
-        date: req.body.date,
-        type: req.body.type,
-        name: req.body.name,
-        description: req.body.description,
-        category: req.body.category,
-        amount: req.body.amount
+      collection.find({}).toArray((err, data) => {
+        console.log(data);
+        // return res.json(data);
       });
+      // collection.user.transactions.forEach(element => {
+      //   console.log(element);
+      // });
+      // collection.user.transactions.insertOne({
+      //   date: date,
+      //   type: req.body.type,
+      //   name: req.body.name,
+      //   description: req.body.description,
+      //   category: req.body.category,
+      //   amount: req.body.amount
+      // });
     }
   );
 });
