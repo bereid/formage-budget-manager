@@ -1,19 +1,34 @@
 import React, { Component } from 'react';
 import { Panel } from 'primereact/panel';
 import 'primereact/resources/primereact.min.css';
+import Progress from './Progressbar';
 
 export class Card extends Component {
 
   render() {
-    return (
-      <Panel header="Godfather I" style={{ width: '80%', margin: '0 auto', marginTop: '2em' }} toggleable={true}>
-        The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
-        His beloved son Michael has just come home from the war, but does not intend to become part of his father's business.
-        Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family,
-        kind and benevolent to those who give respect, but given to ruthless violence whenever anything stands against the good of the family.
-      </Panel>
-    )
+
+
+    if (this.props.budgetToRender === undefined) {
+      return (
+        <Progress />
+      )
+    } else {
+
+      const { user } = this.props.budgetToRender;
+
+      return (
+        <div>
+          {user.transactions.january2019.income.map((inc) => (
+            <Panel header={inc.name} key={Math.random()}style={{ marginTop: '2em' }} toggleable={true}>
+              {inc.amount}e Ft
+            </Panel>
+          ))}
+        </div>
+
+      )
+    }
   }
 }
+
 
 export default Card;

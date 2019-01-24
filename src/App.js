@@ -7,7 +7,7 @@ const App = ({ props }) => (
   <Row>
     <Col sm="2"><ScrollWidget/></Col>
     <Col sm="7"><DoughnutChartDemo budget={props} /></Col>
-    <Col sm="3"><ScrollWidget/></Col>
+    <Col sm="3"><ScrollWidget budget={props}/></Col>
   </Row>
 )
 

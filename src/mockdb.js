@@ -9,6 +9,26 @@ module.exports = {
     },
     transactions: {
       january2019: {
+        income: [
+          {
+            date: '',
+            type: 'income',
+            name: 'Salary',
+            description: '',
+            category: 'Salary',
+            amount: 600,
+            newBalance: 640,
+          },
+          {
+            date: '',
+            type: 'income',
+            name: 'Rent',
+            description: '',
+            category: 'Rent',
+            amount: 200,
+            newBalance: 640,
+          },
+        ],
         utilities: [
           {
             date: '',
