@@ -17,7 +17,7 @@ const MainContent = ({ budget }) => (
   <div style={styles.grid}>
     <Summary data={budget}/>
     <DoughnutChartDemo budget={budget} />
-    <CompareMonths data={budget}/>
+    {/* <CompareMonths data={budget}/> */}
   </div>
 );
 

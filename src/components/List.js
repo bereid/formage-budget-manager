@@ -12,12 +12,13 @@ const styles = {
 
 export default class List extends React.Component {
   render() {
-    let months = Object.keys(this.props.props.user.transactions);
-
+    
+    // filterezni az egyszer előfordulóra!!!
+    
     return (
       <ListGroup flush>
-        {months.map(month => (
-          <ListGroupItem style={styles.list} tag="a" href="#">{month}</ListGroupItem>
+        {this.props.props.transactions.map(month => (
+          <ListGroupItem style={styles.list} tag="a" href="#">{month.date}</ListGroupItem>
         ))}
       </ListGroup>
     );

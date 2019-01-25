@@ -11,7 +11,8 @@ const styles = {
 class DoughnutChartDemo extends Component {
 
   render() {
-    const { user } = this.props.budget;
+
+    const { transactions } = this.props.budget;
 
     let expenses = {
       utility: 0,
@@ -23,29 +24,28 @@ class DoughnutChartDemo extends Component {
       entertainment: 0,
       misc: 0,
     }
-    
-    let dataToLabels = Object.keys(user.transactions.january2019);
-    dataToLabels.splice(0, 1);
-    
-    Object.values(user.transactions.january2019).forEach(value => {
-      value.forEach(element => {
-        if (element.category === 'Utilities') {
-          expenses.utility += element.amount;
-        } else if (element.category === 'Car') {
-           expenses.car += element.amount;
-        } else if (element.category === 'Home/Rent') {
-          expenses.rent += element.amount;
-        } else if (element.category === 'Insurance/Medical') {
-          expenses.medical += element.amount;
-        } else if (element.category === 'Personal') {
-          expenses.personal += element.amount;
-        } else if (element.category === 'Misc/One-time') {
-          expenses.misc += element.amount;
-        } else if (element.category === 'Food/Groceries') {
-          expenses.food += element.amount;
-        }
-      });
+
+    transactions.forEach(element => {
+      if (element.category === 'Utilities' && element.type === 'expense') {
+        expenses.utility += element.amount;
+      } else if (element.category === 'Car' && element.type === 'expense') {
+        expenses.car += element.amount;
+      } else if (element.category === 'Home/Rent' && element.type === 'expense') {
+        expenses.rent += element.amount;
+      } else if (element.category === 'Insurance/Medical' && element.type === 'expense') {
+        expenses.medical += element.amount;
+      } else if (element.category === 'Personal' && element.type === 'expense') {
+        expenses.personal += element.amount;
+      } else if (element.category === 'Misc/One-time' && element.type === 'expense') {
+        expenses.misc += element.amount;
+      } else if (element.category === 'Food/Groceries' && element.type === 'expense') {
+        expenses.food += element.amount;
+      } else if (element.category === 'Entertainment' && element.type === 'expense') {
+        expenses.entertainment += element.amount;
+      }
     });
+
+    console.log(expenses)
 
     const colors = [
       "#fdcb6e", "#e17055", "#00b894", "#00cec9", "#6c5ce7", "#0984e3", "#2d3436", "#b2bec3"
@@ -56,7 +56,7 @@ class DoughnutChartDemo extends Component {
     ]
 
     const data = {
-      labels: dataToLabels,
+      labels: Object.keys(expenses),
       datasets: [
         {
           data: Object.values(expenses),
@@ -66,9 +66,7 @@ class DoughnutChartDemo extends Component {
     };
 
     return (
-      <div className="content-section implementation">
-        <Chart style={styles.chart} type="doughnut" data={data} />
-      </div>
+      <Chart style={styles.chart} type="doughnut" data={data} />
     )
   }
 }

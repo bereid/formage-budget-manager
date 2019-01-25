@@ -9,8 +9,7 @@ const styles = {
 
 const Summary = ({ data }) => (
   <Fieldset style={styles.field} legend="Summary">
-    {console.log(data)}
-    <h5>Current Balance: {data.user.currentBalance} Ft</h5>
+    <h5>Current Balance: {data.currentBalance}e Ft</h5>
     </Fieldset>
 )
 
