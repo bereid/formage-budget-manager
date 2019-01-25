@@ -93,9 +93,27 @@ export class Form extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  // handleCategoryChange = e => {
-  //   this.setState({ [e.target.name]: this.state.category });
-  // };
+  onSubmit = e => {
+    e.preventDefault();
+    const newData = {
+      date: this.state.date,
+      type: this.state.type,
+      name: this.state.name,
+      description: this.state.description,
+      category: this.state.category.name,
+      amount: this.state.amount
+    };
+    fetch("http://localhost:4444/new", {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newData)
+    })
+      .then(res => this.setState)
+      .then(res => console.log(res));
+  };
 
   loggingData = e => {
     console.log(this.state);
@@ -138,7 +156,7 @@ export class Form extends Component {
 
     const footer = (
       <div>
-        <Button label="Yes" icon="pi pi-check" onClick={this.loggingData} />
+        <Button label="Yes" icon="pi pi-check" onClick={this.onSubmit} />
         <Button
           label="No"
           icon="pi pi-times"
