@@ -41,7 +41,7 @@ const styles = {
 const LeftBar = ({ props }) => (
   <div style={styles.leftBar}>
     <div style={styles.list}>
-      {/* <List props={props} /> */}
+      <List props={props} />
     </div>
     <div style={styles.logobar}>
       <div style={styles.addnew}>
