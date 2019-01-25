@@ -15,7 +15,7 @@ const App = ({ data, getData }) => {
     return (
       <Row>
         <Col sm="2"><LeftBar props={data[0]}/></Col>
-        {/* <Col sm="7"><MainContent budget={data[0]} /></Col> */}
+        <Col sm="7"><MainContent budget={data[0]} /></Col>
         <Col sm="3"><ScrollWidget budget={data[0]} /></Col>
       </Row>
     )

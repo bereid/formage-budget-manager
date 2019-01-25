@@ -31,7 +31,6 @@ export default class Switcher extends React.Component {
               onClick={() => { this.toggle('1'); }}
             >
               Incomes
-              {console.log(this.props)}
             </NavLink>
           </NavItem>
           <NavItem>
