@@ -7,11 +7,11 @@ export class ExpendCards extends Component {
 
   render() {
 
-    //filterezni az expendekre!!!
+    let expenses = this.props.budgetToRender.transactions.filter(tran => tran.type === 'expense')
 
     return (
       <div>
-        {this.props.budgetToRender.transactions.map((exp) => (
+        {expenses.map((exp) => (
             <Panel header={exp.name} key={Math.random()}style={{ marginTop: '2em' }} toggleable={true}>
               {exp.amount}e Ft
             </Panel>
