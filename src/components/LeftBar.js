@@ -48,9 +48,9 @@ const LeftBar = ({ props }) => (
         <Form style={styles.addnew} />
       </div>
       <div style={styles.userinfo}>
-        <Avatar color={'#ffeaa7'} round={true} size={50} name={props.user.username} />
+        <Avatar color={'#ffeaa7'} round={true} size={50} name={props.username} />
       </div>
-      <p style={styles.name}>{props.user.username}</p>
+      <p style={styles.name}>{props.username}</p>
     </div>
   </div>
 );
