@@ -204,9 +204,10 @@ export class Form extends Component {
             <InputText
               id="float-input"
               type="text"
+              name="name"
               style={styles.name}
               size="30"
-              value={this.state.value2}
+              value={this.state.name}
               onChange={e => this.setState({ value2: e.target.value })}
             />
             <label htmlFor="float-input">Income/Expense Name</label>
@@ -215,15 +216,17 @@ export class Form extends Component {
             <InputText
               id="float-input"
               type="text"
+              name="description"
               style={styles.description}
               size="30"
-              value={this.state.value3}
+              value={this.state.description}
               onChange={e => this.setState({ value3: e.target.value })}
             />
             <label htmlFor="float-input">Short description</label>
           </span>
           <div>
             <Dropdown
+              name="category"
               value={this.state.category}
               options={categories}
               onChange={this.onCategoryChange}
@@ -236,6 +239,7 @@ export class Form extends Component {
             <InputText
               id="float-input"
               type="text"
+              name="amount"
               style={styles.amount}
               keyfilter="pint"
               value={this.state.value4}
