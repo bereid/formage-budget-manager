@@ -13,15 +13,21 @@ const styles = {
 export default class List extends React.Component {
   render() {
 
-    let months = [];
-    let splittedMonths = [];
-    let joinedMonths = [];
+    const { transactions } = this.props.props
+
+    let dates = []
+    let newdates = [];
     let filteredMonths = [];
-    this.props.props.transactions.forEach(action => months.push(action.date));
-    months.forEach(month => splittedMonths.push(month.split(' ')));
-    splittedMonths.forEach(splitMonth => {splitMonth.shift();});
-    splittedMonths.forEach(shifted => {joinedMonths.push(shifted.join(' '));});
-    joinedMonths.forEach(filtered => {if (filteredMonths.indexOf(filtered) === -1) {filteredMonths.push(filtered);}});
+
+    transactions.forEach(trans => {
+      dates.push(trans.date);
+    });
+
+    dates.forEach(date => {
+      newdates.push(date.substring(0, 7))
+    });
+
+    newdates.forEach(filtered => {if (filteredMonths.indexOf(filtered) === -1) {filteredMonths.push(filtered);}});
 
     console.log(filteredMonths);
 

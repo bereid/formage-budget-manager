@@ -11,6 +11,7 @@ const styles = {
 const Summary = ({ data }) => (
   <Fieldset style={styles.field} legend="Summary">
     <h5>Current Balance: {data.currentBalance}e Ft</h5>
+    <p>Expenses this month: 120e Ft</p>
     </Fieldset>
 )
 
