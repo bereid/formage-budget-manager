@@ -3,7 +3,7 @@ import { Chart } from 'primereact/chart';
 
 const styles = {
   chart: {
-    minWidth: '600px',
+    minWidth: '500px',
     paddingTop: '5em',
   }
 }
@@ -44,8 +44,6 @@ class DoughnutChartDemo extends Component {
         expenses.entertainment += element.amount;
       }
     });
-
-    console.log(expenses)
 
     const colors = [
       "#fdcb6e", "#e17055", "#00b894", "#00cec9", "#6c5ce7", "#0984e3", "#2d3436", "#b2bec3"

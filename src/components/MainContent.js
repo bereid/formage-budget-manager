@@ -8,6 +8,7 @@ const styles = {
     height: '100vh',
     overflow: 'scroll',
     display: 'flex',
+    justifyContent: 'space-between',
     flexWrap: 'wrap',
     paddingTop: '1em',
   }
@@ -17,7 +18,7 @@ const MainContent = ({ budget }) => (
   <div style={styles.grid}>
     <Summary data={budget}/>
     <DoughnutChartDemo budget={budget} />
-    {/* <CompareMonths data={budget}/> */}
+    <CompareMonths budget={budget}/>
   </div>
 );
 

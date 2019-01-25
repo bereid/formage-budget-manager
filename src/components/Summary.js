@@ -3,7 +3,8 @@ import { Fieldset } from 'primereact/fieldset';
 
 const styles = {
   field: {
-    height: '400px'
+    height: '400px',
+    width: '300px'
   }
 }
 

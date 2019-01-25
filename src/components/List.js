@@ -12,13 +12,23 @@ const styles = {
 
 export default class List extends React.Component {
   render() {
-    
-    // filterezni az egyszer előfordulóra!!!
-    
+
+    let months = [];
+    let splittedMonths = [];
+    let joinedMonths = [];
+    let filteredMonths = [];
+    this.props.props.transactions.forEach(action => months.push(action.date));
+    months.forEach(month => splittedMonths.push(month.split(' ')));
+    splittedMonths.forEach(splitMonth => {splitMonth.shift();});
+    splittedMonths.forEach(shifted => {joinedMonths.push(shifted.join(' '));});
+    joinedMonths.forEach(filtered => {if (filteredMonths.indexOf(filtered) === -1) {filteredMonths.push(filtered);}});
+
+    console.log(filteredMonths);
+
     return (
       <ListGroup flush>
-        {this.props.props.transactions.map(month => (
-          <ListGroupItem style={styles.list} tag="a" href="#">{month.date}</ListGroupItem>
+        {filteredMonths.map(month => (
+          <ListGroupItem style={styles.list} tag="a" href="#">{month}</ListGroupItem>
         ))}
       </ListGroup>
     );
