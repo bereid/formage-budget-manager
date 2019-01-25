@@ -36,9 +36,9 @@ const styles = {
     width: "150px"
   },
   button: {
-    width: '100%',
-    backgroundColor: '#e17055',
-    border: '#e17055'
+    width: "100%",
+    backgroundColor: "#e17055",
+    border: "#e17055"
   }
 };
 
@@ -57,7 +57,10 @@ export class Form extends Component {
     this.state = {
       type: null,
       value: null,
+      name: null,
+      description: null,
       category: null,
+      amount: null,
       visible: false,
       date1: null,
       date2: null,
