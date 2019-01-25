@@ -36,9 +36,9 @@ const styles = {
     width: "150px"
   },
   button: {
-    width: '100%',
-    backgroundColor: '#e17055',
-    border: '#e17055'
+    width: "100%",
+    backgroundColor: "#e17055",
+    border: "#e17055"
   }
 };
 
@@ -57,23 +57,12 @@ export class Form extends Component {
     this.state = {
       type: null,
       value: null,
+      name: null,
+      description: null,
       category: null,
+      amount: null,
       visible: false,
-      date1: null,
-      date2: null,
-      date3: null,
-      date4: null,
-      date5: null,
-      date6: null,
-      date7: null,
-      date8: null,
-      date9: null,
-      date10: null,
-      date11: null,
-      date12: null,
-      date13: null,
-      dates1: null,
-      dates2: null,
+      date: null,
       invalidDates: [today]
     };
 
@@ -97,7 +86,36 @@ export class Form extends Component {
 
   onCategoryChange(e) {
     this.setState({ category: e.value });
+    // this.handleCategoryChange(e);
   }
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
+    const newData = {
+      date: this.state.date,
+      type: this.state.type,
+      name: this.state.name,
+      description: this.state.description,
+      category: this.state.category.name,
+      amount: this.state.amount
+    };
+    fetch("http://localhost:4444/new", {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newData)
+    }).then(res => this.onHide());
+  };
+
+  loggingData = e => {
+    console.log(this.state);
+  };
 
   dateTemplate(date) {
     if (date.day > 10 && date.day < 15) {
@@ -136,7 +154,7 @@ export class Form extends Component {
 
     const footer = (
       <div>
-        <Button label="Yes" icon="pi pi-check" onClick={this.onHide} />
+        <Button label="Yes" icon="pi pi-check" onClick={this.onSubmit} />
         <Button
           label="No"
           icon="pi pi-times"
@@ -159,8 +177,8 @@ export class Form extends Component {
           <div style={styles.calendar} className="p-grid p-fluid">
             <div className="p-col-12 p-md-4">
               <Calendar
-                value={this.state.date3}
-                onChange={e => this.setState({ date3: e.value })}
+                value={this.state.date}
+                onChange={e => this.setState({ date: e.value })}
                 showIcon={true}
               />
             </div>
@@ -177,8 +195,8 @@ export class Form extends Component {
                 inputId="rb1"
                 name="type"
                 value="Income"
-                onChange={e => this.setState({ city: e.value })}
-                checked={this.state.city === "Income"}
+                onChange={this.handleChange}
+                checked={this.state.type === "Income"}
               />
               <label htmlFor="rb1" className="p-radiobutton-label">
                 Income
@@ -189,8 +207,8 @@ export class Form extends Component {
                 inputId="rb2"
                 name="type"
                 value="Expense"
-                onChange={e => this.setState({ city: e.value })}
-                checked={this.state.city === "Expense"}
+                onChange={this.handleChange}
+                checked={this.state.type === "Expense"}
               />
               <label htmlFor="rb2" className="p-radiobutton-label">
                 Expense
@@ -201,10 +219,11 @@ export class Form extends Component {
             <InputText
               id="float-input"
               type="text"
+              name="name"
               style={styles.name}
               size="30"
-              value={this.state.value2}
-              onChange={e => this.setState({ value2: e.target.value })}
+              value={this.state.name}
+              onChange={this.handleChange}
             />
             <label htmlFor="float-input">Income/Expense Name</label>
           </span>
@@ -212,15 +231,17 @@ export class Form extends Component {
             <InputText
               id="float-input"
               type="text"
+              name="description"
               style={styles.description}
               size="30"
-              value={this.state.value3}
-              onChange={e => this.setState({ value3: e.target.value })}
+              value={this.state.description}
+              onChange={this.handleChange}
             />
             <label htmlFor="float-input">Short description</label>
           </span>
           <div>
             <Dropdown
+              name="category"
               value={this.state.category}
               options={categories}
               onChange={this.onCategoryChange}
@@ -233,10 +254,11 @@ export class Form extends Component {
             <InputText
               id="float-input"
               type="text"
+              name="amount"
               style={styles.amount}
               keyfilter="pint"
-              value={this.state.value4}
-              onChange={e => this.setState({ value4: e.target.value })}
+              value={this.state.amount}
+              onChange={this.handleChange}
             />
             <label htmlFor="float-input">Amount</label>
           </div>
