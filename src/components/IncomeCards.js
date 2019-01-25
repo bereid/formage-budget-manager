@@ -7,11 +7,11 @@ export class IncomeCards extends Component {
 
   render() {
 
-    //filterezni az incomra!!!
+    let incomes = this.props.budgetToRender.transactions.filter(tran => tran.type === 'income')
 
     return (
       <div>
-        {this.props.budgetToRender.transactions.map((inc) => (
+        {incomes.map((inc) => (
             <Panel header={inc.name} key={Math.random()}style={{ marginTop: '2em' }} toggleable={true}>
               {inc.amount}e Ft
             </Panel>

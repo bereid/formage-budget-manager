@@ -11,9 +11,9 @@ class CompareMonths extends Component {
 
   render() {
 
-    const { user } = this.props.data
+    const { transactions } = this.props.budget;
 
-    let expensesThisMonth = {
+    let expenses = {
       utility: 0,
       rent: 0,
       car: 0,
@@ -24,7 +24,7 @@ class CompareMonths extends Component {
       misc: 0,
     }
 
-    let expensesLastMonth = {
+    let lastMonthExpenses = {
       utility: 0,
       rent: 0,
       car: 0,
@@ -34,63 +34,60 @@ class CompareMonths extends Component {
       entertainment: 0,
       misc: 0,
     }
-    
-    let dataToLabels = Object.keys(user.transactions.january2019);
-    dataToLabels.splice(0, 1);
-    
-    Object.values(user.transactions.january2019).forEach(value => {
-      value.forEach(element => {
-        if (element.category === 'Utilities') {
-          expensesThisMonth.utility += element.amount;
-        } else if (element.category === 'Car') {
-          expensesThisMonth.car += element.amount;
-        } else if (element.category === 'Home/Rent') {
-          expensesThisMonth.rent += element.amount;
-        } else if (element.category === 'Insurance/Medical') {
-          expensesThisMonth.medical += element.amount;
-        } else if (element.category === 'Personal') {
-          expensesThisMonth.personal += element.amount;
-        } else if (element.category === 'Misc/One-time') {
-          expensesThisMonth.misc += element.amount;
-        } else if (element.category === 'Food/Groceries') {
-          expensesThisMonth.food += element.amount;
-        }
-      });
+
+    transactions.forEach(element => {
+      if (element.category === 'Utilities' && element.type === 'expense') {
+        expenses.utility += element.amount;
+      } else if (element.category === 'Car' && element.type === 'expense') {
+        expenses.car += element.amount;
+      } else if (element.category === 'Home/Rent' && element.type === 'expense') {
+        expenses.rent += element.amount;
+      } else if (element.category === 'Insurance/Medical' && element.type === 'expense') {
+        expenses.medical += element.amount;
+      } else if (element.category === 'Personal' && element.type === 'expense') {
+        expenses.personal += element.amount;
+      } else if (element.category === 'Misc/One-time' && element.type === 'expense') {
+        expenses.misc += element.amount;
+      } else if (element.category === 'Food/Groceries' && element.type === 'expense') {
+        expenses.food += element.amount;
+      } else if (element.category === 'Entertainment' && element.type === 'expense') {
+        expenses.entertainment += element.amount;
+      }
     });
 
-    Object.values(user.transactions.december2018).forEach(value => {
-      value.forEach(element => {
-        if (element.category === 'Utilities') {
-          expensesLastMonth.utility += element.amount;
-        } else if (element.category === 'Car') {
-          expensesLastMonth.car += element.amount;
-        } else if (element.category === 'Home/Rent') {
-          expensesLastMonth.rent += element.amount;
-        } else if (element.category === 'Insurance/Medical') {
-          expensesLastMonth.medical += element.amount;
-        } else if (element.category === 'Personal') {
-          expensesLastMonth.personal += element.amount;
-        } else if (element.category === 'Misc/One-time') {
-          expensesLastMonth.misc += element.amount;
-        } else if (element.category === 'Food/Groceries') {
-          expensesLastMonth.food += element.amount;
-        }
-      });
+    transactions.forEach(element => {
+      if (element.category === 'Utilities' && element.type === 'expense') {
+        lastMonthExpenses.utility += element.amount;
+      } else if (element.category === 'Car' && element.type === 'expense') {
+        lastMonthExpenses.car += element.amount;
+      } else if (element.category === 'Home/Rent' && element.type === 'expense') {
+        lastMonthExpenses.rent += element.amount;
+      } else if (element.category === 'Insurance/Medical' && element.type === 'expense') {
+        lastMonthExpenses.medical += element.amount;
+      } else if (element.category === 'Personal' && element.type === 'expense') {
+        lastMonthExpenses.personal += element.amount;
+      } else if (element.category === 'Misc/One-time' && element.type === 'expense') {
+        lastMonthExpenses.misc += element.amount;
+      } else if (element.category === 'Food/Groceries' && element.type === 'expense') {
+        lastMonthExpenses.food += element.amount;
+      } else if (element.category === 'Entertainment' && element.type === 'expense') {
+        lastMonthExpenses.entertainment += element.amount;
+      }
     });
 
 
     const data = {
-      labels: dataToLabels,
+      labels: Object.keys(lastMonthExpenses),
       datasets: [
         {
-          label: Object.keys(user.transactions)[1],
+          label: 'january',
           backgroundColor: '#fdcb6e"',
-          data: Object.values(expensesLastMonth)
+          data: Object.values(lastMonthExpenses)
         },
         {
-          label: Object.keys(user.transactions)[2],
+          label: 'february',
           backgroundColor: '#ffeaa7',
-          data: Object.values(expensesThisMonth),
+          data: Object.values(expenses),
         }
       ]
     };
