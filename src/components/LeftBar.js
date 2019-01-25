@@ -11,10 +11,11 @@ const styles = {
     boxShadow: '4px 0px 85px 0px rgba(0,0,0,0.75)',
     display: 'flex',
     flexDirection: 'column',
-    overflow: 'scroll',
+    minWidth: '200px'
   },
   list: {
     height: '50%',
+    overflow: 'scroll',
   },
   logobar: {
     padding: '1em',
@@ -47,7 +48,7 @@ const LeftBar = ({ props }) => (
         <Form style={styles.addnew} />
       </div>
       <div style={styles.userinfo}>
-        <Avatar color={'#08c5d1'} round={true} size={50} name={props.user.username} />
+        <Avatar color={'#ffeaa7'} round={true} size={50} name={props.user.username} />
       </div>
       <p style={styles.name}>{props.user.username}</p>
     </div>

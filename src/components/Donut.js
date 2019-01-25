@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import { Chart } from 'primereact/chart';
 
+const styles = {
+  chart: {
+    minWidth: '600px',
+    paddingTop: '5em',
+  }
+}
+
 class DoughnutChartDemo extends Component {
 
   render() {
@@ -60,7 +67,7 @@ class DoughnutChartDemo extends Component {
 
     return (
       <div className="content-section implementation">
-        <Chart type="doughnut" data={data} />
+        <Chart style={styles.chart} type="doughnut" data={data} />
       </div>
     )
   }
