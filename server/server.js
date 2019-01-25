@@ -27,7 +27,7 @@ app.get("/test", (req, res) => {
     dbRoute,
     { useNewUrlParser: true },
     (err, database) => {
-      let collection = db.collection("wallets");
+      let collection = db.collection("new-wallet");
       collection.find({}).toArray((err, data) => {
         return res.json(data);
       });
@@ -41,24 +41,25 @@ app.post("/new", (req, res) => {
     dbRoute,
     { useNewUrlParser: true },
     (err, database) => {
-      let collection = db.collection("wallets");
-      collection.find({}).toArray((err, data) => {
-        console.log(data);
-        // return res.json(data);
-      });
-      // collection.user.transactions.forEach(element => {
-      //   console.log(element);
-      // });
-      // collection.user.transactions.insertOne({
-      //   date: date,
-      //   type: req.body.type,
-      //   name: req.body.name,
-      //   description: req.body.description,
-      //   category: req.body.category,
-      //   amount: req.body.amount
-      // });
+      let collection = db.collection("new-wallet");
+      collection.findOneAndUpdate(
+        { username: "Dévényi Tibor" },
+        {
+          $push: {
+            transactions: {
+              date: date,
+              type: req.body.type,
+              name: req.body.name,
+              description: req.body.description,
+              category: req.body.category,
+              amount: req.body.amount
+            }
+          }
+        }
+      );
     }
   );
+  res.send("Kész!");
 });
 
 db.once("open", () => console.log("Connected to the database"));
