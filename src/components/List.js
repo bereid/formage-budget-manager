@@ -5,6 +5,8 @@ const styles = {
   list: {
     background: 'none',
     color: 'white',
+    width: '100%',
+    minWidth: '200px'
   }
 }
 

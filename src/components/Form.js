@@ -37,8 +37,8 @@ const styles = {
   },
   button: {
     width: '100%',
-    backgroundColor: '#d46f4d',
-    border: '#d46f4d'
+    backgroundColor: '#e17055',
+    border: '#e17055'
   }
 };
 
