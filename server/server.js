@@ -9,6 +9,7 @@ const mongoose = require("mongoose");
 const mongodb = require("mongodb");
 const MongoClient = mongodb.MongoClient;
 const router = express.Router();
+const id = { $oid: "5c4a29c4fb6fc02d2ef30ff4" };
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -26,12 +27,39 @@ app.get("/test", (req, res) => {
     dbRoute,
     { useNewUrlParser: true },
     (err, database) => {
-      let collection = db.collection("wallets");
+      let collection = db.collection("new-wallet");
       collection.find({}).toArray((err, data) => {
         return res.json(data);
       });
     }
   );
+});
+
+app.post("/new", (req, res) => {
+  let date = req.body.date;
+  MongoClient.connect(
+    dbRoute,
+    { useNewUrlParser: true },
+    (err, database) => {
+      let collection = db.collection("new-wallet");
+      collection.findOneAndUpdate(
+        { username: "Dévényi Tibor" },
+        {
+          $push: {
+            transactions: {
+              date: date,
+              type: req.body.type,
+              name: req.body.name,
+              description: req.body.description,
+              category: req.body.category,
+              amount: req.body.amount
+            }
+          }
+        }
+      );
+    }
+  );
+  res.send("Kész!");
 });
 
 db.once("open", () => console.log("Connected to the database"));
