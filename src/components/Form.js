@@ -110,9 +110,7 @@ export class Form extends Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(newData)
-    })
-      .then(res => this.setState)
-      .then(res => console.log(res));
+    }).then(res => this.onHide());
   };
 
   loggingData = e => {
