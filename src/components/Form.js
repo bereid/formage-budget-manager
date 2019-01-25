@@ -62,21 +62,7 @@ export class Form extends Component {
       category: null,
       amount: null,
       visible: false,
-      date1: null,
-      date2: null,
-      date3: null,
-      date4: null,
-      date5: null,
-      date6: null,
-      date7: null,
-      date8: null,
-      date9: null,
-      date10: null,
-      date11: null,
-      date12: null,
-      date13: null,
-      dates1: null,
-      dates2: null,
+      date: null,
       invalidDates: [today]
     };
 
@@ -100,11 +86,16 @@ export class Form extends Component {
 
   onCategoryChange(e) {
     this.setState({ category: e.value });
+    // this.handleCategoryChange(e);
   }
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
+  // handleCategoryChange = e => {
+  //   this.setState({ [e.target.name]: this.state.category });
+  // };
 
   loggingData = e => {
     console.log(this.state);
@@ -170,8 +161,8 @@ export class Form extends Component {
           <div style={styles.calendar} className="p-grid p-fluid">
             <div className="p-col-12 p-md-4">
               <Calendar
-                value={this.state.date3}
-                onChange={e => this.setState({ date3: e.value })}
+                value={this.state.date}
+                onChange={e => this.setState({ date: e.value })}
                 showIcon={true}
               />
             </div>
@@ -188,7 +179,7 @@ export class Form extends Component {
                 inputId="rb1"
                 name="type"
                 value="Income"
-                onChange={e => this.setState({ city: e.value })}
+                onChange={this.handleChange}
                 checked={this.state.type === "Income"}
               />
               <label htmlFor="rb1" className="p-radiobutton-label">
@@ -200,7 +191,7 @@ export class Form extends Component {
                 inputId="rb2"
                 name="type"
                 value="Expense"
-                onChange={e => this.setState({ city: e.value })}
+                onChange={this.handleChange}
                 checked={this.state.type === "Expense"}
               />
               <label htmlFor="rb2" className="p-radiobutton-label">
@@ -250,8 +241,8 @@ export class Form extends Component {
               name="amount"
               style={styles.amount}
               keyfilter="pint"
-              value={this.state.value4}
-              onChange={e => this.setState({ value4: e.target.value })}
+              value={this.state.amount}
+              onChange={this.handleChange}
             />
             <label htmlFor="float-input">Amount</label>
           </div>
