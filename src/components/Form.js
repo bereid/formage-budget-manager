@@ -102,6 +102,14 @@ export class Form extends Component {
     this.setState({ category: e.value });
   }
 
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  loggingData = e => {
+    console.log(this.state);
+  };
+
   dateTemplate(date) {
     if (date.day > 10 && date.day < 15) {
       return (
@@ -139,7 +147,7 @@ export class Form extends Component {
 
     const footer = (
       <div>
-        <Button label="Yes" icon="pi pi-check" onClick={this.onHide} />
+        <Button label="Yes" icon="pi pi-check" onClick={this.loggingData} />
         <Button
           label="No"
           icon="pi pi-times"
@@ -181,7 +189,7 @@ export class Form extends Component {
                 name="type"
                 value="Income"
                 onChange={e => this.setState({ city: e.value })}
-                checked={this.state.city === "Income"}
+                checked={this.state.type === "Income"}
               />
               <label htmlFor="rb1" className="p-radiobutton-label">
                 Income
@@ -193,7 +201,7 @@ export class Form extends Component {
                 name="type"
                 value="Expense"
                 onChange={e => this.setState({ city: e.value })}
-                checked={this.state.city === "Expense"}
+                checked={this.state.type === "Expense"}
               />
               <label htmlFor="rb2" className="p-radiobutton-label">
                 Expense
@@ -208,7 +216,7 @@ export class Form extends Component {
               style={styles.name}
               size="30"
               value={this.state.name}
-              onChange={e => this.setState({ value2: e.target.value })}
+              onChange={this.handleChange}
             />
             <label htmlFor="float-input">Income/Expense Name</label>
           </span>
@@ -220,7 +228,7 @@ export class Form extends Component {
               style={styles.description}
               size="30"
               value={this.state.description}
-              onChange={e => this.setState({ value3: e.target.value })}
+              onChange={this.handleChange}
             />
             <label htmlFor="float-input">Short description</label>
           </span>
