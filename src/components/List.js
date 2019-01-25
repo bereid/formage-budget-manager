@@ -27,16 +27,6 @@ export default class List extends React.Component {
       newdates.push(date.substring(0, 7))
     });
 
-    // console.log(newdates);
-
-    // let months = [];
-    // let splittedMonths = [];
-    // let joinedMonths = [];
-    // let filteredMonths = [];
-    // this.props.props.transactions.forEach(action => months.push(action.date));
-    // months.forEach(month => splittedMonths.push(month.split(' ')));
-    // splittedMonths.forEach(splitMonth => {splitMonth.shift();});
-    // splittedMonths.forEach(shifted => {joinedMonths.push(shifted.join(' '));});
     newdates.forEach(filtered => {if (filteredMonths.indexOf(filtered) === -1) {filteredMonths.push(filtered);}});
 
     console.log(filteredMonths);

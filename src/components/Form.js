@@ -194,9 +194,9 @@ export class Form extends Component {
               <RadioButton
                 inputId="rb1"
                 name="type"
-                value="Income"
+                value="income"
                 onChange={this.handleChange}
-                checked={this.state.type === "Income"}
+                checked={this.state.type === "income"}
               />
               <label htmlFor="rb1" className="p-radiobutton-label">
                 Income
@@ -206,9 +206,9 @@ export class Form extends Component {
               <RadioButton
                 inputId="rb2"
                 name="type"
-                value="Expense"
+                value="expense"
                 onChange={this.handleChange}
-                checked={this.state.type === "Expense"}
+                checked={this.state.type === "expense"}
               />
               <label htmlFor="rb2" className="p-radiobutton-label">
                 Expense
