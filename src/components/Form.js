@@ -253,7 +253,7 @@ export class Form extends Component {
           <div className="p-float-label">
             <InputText
               id="float-input"
-              type="text"
+              type="number"
               name="amount"
               style={styles.amount}
               keyfilter="pint"
