@@ -1,46 +1,78 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
+import './Login.css';
 
-class Login extends Component {
-constructor(props){
-  super(props);
-  this.state={
-  username:'',
-  password:''
+export class Login extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      value: null
+    };
   }
- }
-render() {
+
+  toggle() {
+    this.setState({ disabled: !this.state.disabled });
+  }
+
+  render() {
+
     return (
-      <div>
-        <MuiThemeProvider>
-          <div>
-          <AppBar
-             title="Login"
-           />
-           <TextField
-             hintText="Enter your Username"
-             floatingLabelText="Username"
-             onChange = {(event,newValue) => this.setState({username:newValue})}
-             />
-           <br/>
-             <TextField
-               type="password"
-               hintText="Enter your Password"
-               floatingLabelText="Password"
-               onChange = {(event,newValue) => this.setState({password:newValue})}
-               />
-             <br/>
-             <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
-         </div>
-         </MuiThemeProvider>
+      <div className="login-wrap">
+        <div className="login-html">
+          <input id="tab-1" type="radio" name="tab" className="sign-in" checked /><label for="tab-1" className="tab">Sign In</label>
+          <input id="tab-2" type="radio" name="tab" className="sign-up" /><label for="tab-2" className="tab">Sign Up</label>
+          <div className="login-form">
+            <div className="sign-in-htm">
+              <div className="group">
+                <label for="user" className="label">Username</label>
+                <input id="user" type="text" className="input" />
+              </div>
+              <div className="group">
+                <label for="pass" className="label">Password</label>
+                <input id="pass" type="password" className="input" data-type="password" />
+              </div>
+              <div className="group">
+                <input id="check" type="checkbox" className="check" checked />
+                <label for="check"><span className="icon"></span> Keep me Signed in</label>
+              </div>
+              <div className="group">
+                <input type="submit" className="button" value="Sign In" />
+              </div>
+              <div className="hr"></div>
+              <div className="foot-lnk">
+                <a href="#forgot">Forgot Password?</a>
+              </div>
+            </div>
+            <div className="sign-up-htm">
+              <div className="group">
+                <label for="user" className="label">Username</label>
+                <input id="user" type="text" className="input" />
+              </div>
+              <div className="group">
+                <label for="pass" className="label">Password</label>
+                <input id="pass" type="password" className="input" data-type="password" />
+              </div>
+              <div className="group">
+                <label for="pass" className="label">Repeat Password</label>
+                <input id="pass" type="password" className="input" data-type="password" />
+              </div>
+              <div className="group">
+                <label for="pass" className="label">Email Address</label>
+                <input id="pass" type="text" className="input" />
+              </div>
+              <div className="group">
+                <input type="submit" className="button" value="Sign Up" />
+              </div>
+              <div className="hr"></div>
+              <div className="foot-lnk">
+                <label for="tab-1">Already Member?</label>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    );
+    )
   }
 }
-const style = {
- margin: 15,
-};
+
 export default Login;
