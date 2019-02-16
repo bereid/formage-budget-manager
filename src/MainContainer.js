@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import App from './App';
 import getAllData from './config/getAllData';
+import Main from './Main';
 
 const mapStateToProps = state => ({
   data: state.getAllDataReducer.data
@@ -10,9 +10,9 @@ const mapDispatchToProps = (dispatch) => ({
   getData: () => getAllData(dispatch)
 });
 
-const AppContainer = connect(
+const MainContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(App);
+)(Main);
 
-export default AppContainer;
+export default MainContainer;
