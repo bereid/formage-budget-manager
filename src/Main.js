@@ -5,7 +5,7 @@ import ScrollWidget from './components/ScrollWidget';
 import Progress from './components/Progressbar';
 import LeftBar from './components/LeftBar';
 
-const App = ({ data, getData }) => {
+const Main = ({ data, getData }) => {
   if (data.length === 0) {
     getData();
     return (
@@ -22,4 +22,4 @@ const App = ({ data, getData }) => {
   }
 }
 
-export default App;
+export default Main;

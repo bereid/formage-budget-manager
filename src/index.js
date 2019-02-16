@@ -11,12 +11,14 @@ import MainContainer from './MainContainer';
 import { Router, Route } from 'react-router-dom';
 import history from './history';
 import App from './App';
+import welcomePath from './utils/welcomePath';
+import Login from './Login';
 
 ReactDOM.render(
   <Router history={history}>
     <Provider store={store}>
       <App>
-        <Route exact path="/" component={welcomePath(MainContainer, WelcomeContainer)} />
+        <Route exact path="/" component={welcomePath(MainContainer, Login)} />
       </App>
     </Provider>
   </Router>,
