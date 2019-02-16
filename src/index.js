@@ -8,11 +8,18 @@ import 'primeicons/primeicons.css';
 import { Provider } from 'react-redux';
 import store from './store';
 import MainContainer from './MainContainer';
+import { Router, Route } from 'react-router-dom';
+import history from './history';
+import App from './App';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <MainContainer />
-  </Provider>,
+  <Router history={history}>
+    <Provider store={store}>
+      <App>
+        <Route exact path="/" component={welcomePath(MainContainer, WelcomeContainer)} />
+      </App>
+    </Provider>
+  </Router>,
   document.getElementById('root'));
 
 serviceWorker.unregister();
