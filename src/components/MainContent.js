@@ -16,7 +16,6 @@ const styles = {
 
 const MainContent = ({ budget }) => (
   <div style={styles.grid}>
-    <Summary data={budget}/>
     <DoughnutChartDemo budget={budget} />
     <CompareMonths budget={budget}/>
   </div>

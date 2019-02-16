@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppContainer from './AppContainer';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'primereact/resources/themes/nova-dark/theme.css';
@@ -8,11 +7,21 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import { Provider } from 'react-redux';
 import store from './store';
+import MainContainer from './MainContainer';
+import { Router, Route } from 'react-router-dom';
+import history from './history';
+import App from './App';
+import welcomePath from './utils/welcomePath';
+import Login from './Login';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <AppContainer />
-  </Provider>,
+  <Router history={history}>
+    <Provider store={store}>
+      <App>
+        <Route exact path="/" component={welcomePath(MainContainer, Login)} />
+      </App>
+    </Provider>
+  </Router>,
   document.getElementById('root'));
 
 serviceWorker.unregister();
