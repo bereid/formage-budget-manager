@@ -189,3 +189,18 @@ a {
 .foot-lnk {
 	text-align: center;
 }
+
+.credits {
+	text-align: center;
+	margin-top: 3em;
+	font-weight: 400;
+	font-size: 0.8em;
+}
+
+.credits img {
+	height: 40px;
+}
+
+.credits p {
+	color: white;
+}
