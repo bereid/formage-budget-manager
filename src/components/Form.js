@@ -37,8 +37,9 @@ const styles = {
   },
   button: {
     width: "100%",
-    backgroundColor: "#e17055",
-    border: "#e17055"
+    height: "40px",
+    backgroundColor: "rgba(0, 0, 0, 0.3)",
+    border: "#e17055",
   }
 };
 

@@ -3,7 +3,8 @@ import { Chart } from 'primereact/chart';
 
 const styles = {
   chart: {
-    minWidth: '700px'
+    minWidth: '350px',
+    width: '50%',
   }
 }
 
@@ -93,9 +94,7 @@ class CompareMonths extends Component {
     };
 
     return (
-      <div>
         <Chart style={styles.chart} type="bar" data={data} />
-      </div>
     )
   }
 }
