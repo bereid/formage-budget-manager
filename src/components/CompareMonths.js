@@ -3,7 +3,7 @@ import { Chart } from 'primereact/chart';
 
 const styles = {
   chart: {
-    minWidth: '300px',
+    minWidth: '350px',
     width: '50%',
   }
 }
