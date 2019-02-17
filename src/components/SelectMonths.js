@@ -28,7 +28,7 @@ export class SelectMonths extends Component {
         options={months}
         onChange={(e) => this.setState({ months: e.value })}
         fixedPlaceholder={true}
-        style={{ minWidth: '16em', maxWidth: '16em', background: "rgba(0, 0, 0, 0.3)", height: "40px", border: "0px", outline: 'none' }}
+        style={{ marginRight: '1em', width: '12em', minWidth: '8em', maxWidth: '16em', background: "rgba(0, 0, 0, 0.3)", height: "40px", border: "0px", outline: 'none' }}
         filter={true}
         placeholder="Select months"
       />

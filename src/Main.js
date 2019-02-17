@@ -7,7 +7,7 @@ import Topbar from './components/Topbar';
 const styles = {
   main: {
     display: 'flex',
-  }
+  },
 }
 
 const Main = ({ data, getData }) => {
