@@ -1,9 +1,14 @@
 import React from 'react';
-import { Row, Col } from 'reactstrap';
 import MainContent from './components/MainContent';
 import ScrollWidget from './components/ScrollWidget';
 import Progress from './components/Progressbar';
-import LeftBar from './components/LeftBar';
+import Topbar from './components/Topbar';
+
+const styles = {
+  main: {
+    display: 'flex',
+  }
+}
 
 const Main = ({ data, getData }) => {
   if (data.length === 0) {
@@ -13,11 +18,13 @@ const Main = ({ data, getData }) => {
     )
   } else {
     return (
-      <Row>
-        <Col sm="2"><LeftBar props={data[0]}/></Col>
-        <Col sm="7"><MainContent budget={data[0]} /></Col>
-        <Col sm="3"><ScrollWidget budget={data[0]} /></Col>
-      </Row>
+      <div>
+        <Topbar />
+        <div style={styles.main}>
+          <MainContent budget={data[0]} />
+          <ScrollWidget budget={data[0]} />
+        </div>
+      </div>
     )
   }
 }

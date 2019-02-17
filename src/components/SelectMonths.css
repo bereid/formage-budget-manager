@@ -1,0 +1,27 @@
+.p-multiselect .p-multiselect-label {
+  color: white !important;
+}
+
+.p-multiselect .p-multiselect-trigger {
+  background-color: transparent !important;
+}
+
+.p-multiselect:not(.p-disabled).p-focus {
+  box-shadow: none !important;
+}
+
+.pi-chevron-down:before {
+  color: white !important;
+}
+
+.label {
+  margin-bottom: 0rem !important;
+}
+
+.p-multiselect-label .p-placeholder {
+  height: 40px !important;
+}
+
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item:focus {
+  box-shadow: none !important;
+}
