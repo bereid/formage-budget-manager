@@ -43,10 +43,10 @@ export default class Switcher extends React.Component {
           </NavItem>
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
-          <TabPane tabId="1">
+          <TabPane style={{ height: '700px', overflow: 'scroll' }} tabId="1">
             <IncomeCards budgetToRender={this.props.props} />
           </TabPane>
-          <TabPane tabId="2">
+          <TabPane style={{ height: '700px', overflow: 'scroll' }} tabId="2">
             <ExpendCards budgetToRender={this.props.props} />
           </TabPane>
         </TabContent>

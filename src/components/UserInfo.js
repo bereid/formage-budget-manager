@@ -6,7 +6,6 @@ const styles = {
     display: 'flex',
     height: '100%',
     alignItems: 'center',
-    overflow: 'hidden',
   },
   username: {
     color: "white",

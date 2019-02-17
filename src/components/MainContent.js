@@ -5,7 +5,6 @@ import Summary from './Summary';
 
 const styles = {
   grid: {
-    height: '100vh',
     overflow: 'scroll',
     display: 'flex',
     justifyContent: 'space-between',

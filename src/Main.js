@@ -7,6 +7,7 @@ import Topbar from './components/Topbar';
 const styles = {
   main: {
     display: 'flex',
+    marginTop: '60px',
   },
 }
 
@@ -18,7 +19,7 @@ const Main = ({ data, getData }) => {
     )
   } else {
     return (
-      <div>
+      <div style={{ height: '100%' }}>
         <Topbar />
         <div style={styles.main}>
           <MainContent budget={data[0]} />
