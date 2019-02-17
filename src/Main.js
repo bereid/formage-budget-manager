@@ -5,9 +5,13 @@ import Progress from './components/Progressbar';
 import Topbar from './components/Topbar';
 
 const styles = {
-  main: {
+  content: {
     display: 'flex',
     marginTop: '60px',
+    width: '100%',
+  },
+  main: {
+    width: '100%'
   },
 }
 
@@ -19,10 +23,12 @@ const Main = ({ data, getData }) => {
     )
   } else {
     return (
-      <div style={{ height: '100%' }}>
+      <div>
         <Topbar />
-        <div style={styles.main}>
-          <MainContent budget={data[0]} />
+        <div style={styles.content}>
+          <div style={styles.main}>
+            <MainContent budget={data[0]} />
+          </div>
           <ScrollWidget budget={data[0]} />
         </div>
       </div>

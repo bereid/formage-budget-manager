@@ -3,8 +3,8 @@ import { Chart } from 'primereact/chart';
 
 const styles = {
   chart: {
-    minWidth: '500px',
-    paddingTop: '5em',
+    minWidth: '300px',
+    width: '50%',
   }
 }
 

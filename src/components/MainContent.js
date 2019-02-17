@@ -1,7 +1,6 @@
 import React from 'react';
 import DoughnutChartDemo from './Donut';
 import CompareMonths from './CompareMonths';
-import Summary from './Summary';
 
 const styles = {
   grid: {
