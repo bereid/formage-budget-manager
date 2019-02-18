@@ -13,12 +13,14 @@ import history from './history';
 import App from './App';
 import welcomePath from './utils/welcomePath';
 import Login from './Login';
+import Credits from './Credits';
 
 ReactDOM.render(
   <Router history={history}>
     <Provider store={store}>
       <App>
         <Route exact path="/" component={welcomePath(MainContainer, Login)} />
+        <Route path="/credits" component={Credits}/>
       </App>
     </Provider>
   </Router>,

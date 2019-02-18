@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import logo from './components/FromageIcon.png'
 import './Login.css';
 
 export class Login extends Component {
@@ -41,6 +42,11 @@ export class Login extends Component {
               <div className="hr"></div>
               <div className="foot-lnk">
                 <a href="#forgot">Forgot Password?</a>
+              </div>
+              <div className="credits">
+                <img src={logo}></img>
+                <p>Budget Manager © 2019 </p>
+                <a href="/credits">credits</a>
               </div>
             </div>
             <div className="sign-up-htm">
